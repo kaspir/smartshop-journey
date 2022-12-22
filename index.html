@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <body style="margin : 0px; overflow: hidden;">
-        <a-scene embedded arjs>
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--     
+    <link rel="stylesheet" href="css/orangeHelvetica.css" />
+    <link rel="stylesheet" href="css/orangeIcons.css" />
+    <link rel="stylesheet" href="css/boosted.css" />
+ -->
+
+<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+<!-- we import arjs version without NFT but with marker + location based support -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-assets>
+        <a-asset-item id="iphone" src="./assets/phone-01/scene.gltf"></a-asset-item>
+        <a-asset-item id="headphone" src="./assets/accesory-01/scene.gltf"></a-asset-item>
+    </a-assets>
+    <a-scene embedded arjs>
+        <a-marker type="pattern" url="./assets/pattern-index.patt">
+            <a-entity position="0 0.5 0" scale="1 1 1" gltf-model="#iphone"></a-entity>
+        </a-marker-camera>
         <a-marker preset="hiro">
-            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-            <a-entity
-            position="0 0 0"
-            scale="0.05 0.05 0.05"
-            gltf-model="your-server/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-            ></a-entity>
+            <a-entity position="0 0 0" scale="1 1 1" gltf-model="#headphone"></a-entity>
         </a-marker>
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+            <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
 </html>
