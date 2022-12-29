@@ -8,6 +8,7 @@
 <!-- <link rel="stylesheet" href="css/orangeIcons.css" /> -->
 <!-- <link rel="stylesheet" href="css/boosted.css" /> -->
 
+
 <!-- <script src="js/webcam.js"></script> -->
 
 <!-- A-Frame -->
@@ -24,19 +25,28 @@
 
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-assets>
-        <a-asset-item id="iphone" src="assets/phone-01/scene.gltf"></a-asset-item>
-        <a-asset-item id="headphone" src="assets/accesory-01/scene.gltf"></a-asset-item>
-    </a-assets>
     <a-scene embedded arjs>
+        <a-assets>
+            <a-asset-item id="iphone" src="assets/phone-01/scene.gltf"></a-asset-item>
+            <a-asset-item id="headphone" src="assets/accesory-01/scene.gltf"></a-asset-item>
+        </a-assets>
         <a-marker type="pattern" url="assets/pattern-index.patt">
-            <a-entity position="0 0.5 0" scale="1 1 1" gltf-model="#iphone"></a-entity>
-        </a-marker-camera>
-        <a-marker preset="hiro">
-            <a-entity position="0 0 0" scale="1 1 1" gltf-model="#headphone"></a-entity>
+            <a-entity \
+                position="0 0 0" \
+                scale="1 1 1" \
+                gltf-model="#iphone" \
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 6000" \
+                ></a-entity>
         </a-marker>
-            <a-entity camera></a-entity>
+        <a-marker preset="hiro">
+            <a-entity position="0 0 0" scale="0.1 0.1 0.1" gltf-model="#headphone"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
     </a-scene>
+
+    <script>
+        
+    </script>
     
     <!-- <div id="app">
         <video
