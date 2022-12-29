@@ -8,7 +8,7 @@
 <!-- <link rel="stylesheet" href="css/orangeIcons.css" /> -->
 <!-- <link rel="stylesheet" href="css/boosted.css" /> -->
 
-<script src="./js/webcam.js"></script>
+<!-- <script src="js/webcam.js"></script> -->
 
 <!-- A-Frame -->
 <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
@@ -24,21 +24,21 @@
 
 
 <body style="margin : 0px; overflow: hidden;">
-    <!-- <a-assets>
-        <a-asset-item id="iphone" src="./assets/phone-01/scene.gltf"></a-asset-item>
-        <a-asset-item id="headphone" src="./assets/accesory-01/scene.gltf"></a-asset-item>
+    <a-assets>
+        <a-asset-item id="iphone" src="assets/phone-01/scene.gltf"></a-asset-item>
+        <a-asset-item id="headphone" src="assets/accesory-01/scene.gltf"></a-asset-item>
     </a-assets>
     <a-scene embedded arjs>
-        <a-marker type="pattern" url="./assets/pattern-index.patt">
+        <a-marker type="pattern" url="assets/pattern-index.patt">
             <a-entity position="0 0.5 0" scale="1 1 1" gltf-model="#iphone"></a-entity>
         </a-marker-camera>
         <a-marker preset="hiro">
             <a-entity position="0 0 0" scale="1 1 1" gltf-model="#headphone"></a-entity>
         </a-marker>
             <a-entity camera></a-entity>
-    </a-scene> -->
+    </a-scene>
     
-    <div id="app">
+    <!-- <div id="app">
         <video
             loop
             autoplay
@@ -48,7 +48,7 @@
         </video>
 
         <canvas id="canvas"></canvas>
-    </div>
+    </div> -->
 
 
     <!-- <a-scene 
@@ -57,7 +57,7 @@
         arjs="trackingMethod: best; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
     >
         <a-marker preset="hiro">
-            <a-entity position="0 0 0" scale="1.5 1.5 1.5" gltf-model="./assets/phone-01/scene.gltf">
+            <a-entity position="0 0 0" scale="1.5 1.5 1.5" gltf-model="assets/phone-01/scene.gltf">
             </a-entity>
         </a-marker>
         <a-entity camera></a-entity>
