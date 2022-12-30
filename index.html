@@ -28,7 +28,7 @@
     <a-scene \
         vr-mode-ui="enabled: false;" \
         embedded \
-        arjs="trackingMethod: best; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;" \
+        arjs="trackingMethod: best; sourceType: webcam; sourceWidth:1280; sourceHeight:720; displayWidth: 1280; displayHeight: 720; debugUIEnabled: false;" \
     >
         <a-assets>
             <a-asset-item id="iphone" src="assets/phone-01/scene.gltf"></a-asset-item>
@@ -45,8 +45,7 @@
         <a-marker preset="hiro">
             <a-entity position="0 0 0" scale="0.1 0.1 0.1" gltf-model="#headphone"></a-entity>
         </a-marker>
-        <a-entity camera></a-entity>
     </a-scene>
-    
+
 </body>
 </html>
