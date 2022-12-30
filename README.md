@@ -27,6 +27,7 @@ Application to experiment with web ar functionality based on opensource librarie
     <br>
     <img src="assets/pattern-index.png" width="256" height="256">
     <img src="assets/hiro.png" width="256" height="256">
+    <img src="assets/marker-barcode-5.png" width="256" height="256">
     
 
 
