@@ -52,6 +52,19 @@ AR.js features the following types of Augmented Reality, on the Web:
     </li>
 </ul>
 
+AR.js uses jsartoolkit5 for tracking, but can display augmented content with either three.js or A-Frame.
+
+AR.js uses WebGL technology to present graphics and WebRTC to manage camera.
+
+Marker based tracking is very lightweight, while Image Tracking is more CPU consuming.
+
+## Comments
+
+Current experiment uses first two markers. Under the first one (also available when user scan QR code with pattern inside) there is two 3d models next to each other:
+- a knot (A-Frame primitive) - it have 2 animations attached with different duration and axis
+- mobile phone (from free to use GLTF model) - one animation which rotates around y axis
+
+Second marker (Hiro) leads to retro phone model (GLTF). It has Java Script event attached to actively scale and rotate model. To do that firstly marker must be recoginzed (button on the bottom of screen shows up). If user click on button, then model will change accordingly.
 
 
 
