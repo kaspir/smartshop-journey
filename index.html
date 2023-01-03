@@ -35,23 +35,55 @@
 	AFRAME.registerComponent('registerevents', {
 		init: function () {
 			var marker = this.el;
+            var button = document.querySelector(".buttons > button")
+            var element = document.querySelector("#hiro-retrophone > a-entity")
+            
 
 			marker.addEventListener('markerFound', function() {
 				var markerId = marker.id;
 				console.log('markerFound', markerId);
 				// TODO: Add your own code here to react to the marker being found.
+                button.hidden=false;
 			});
 
 			marker.addEventListener('markerLost', function() {
 				var markerId = marker.id;
 				console.log('markerLost', markerId);
 				// TODO: Add your own code here to react to the marker being lost.
+                button.hidden=true;
 			});
+
+            button.addEventListener('click', function () {
+                element.object3D.scale.set(0.8, 0.8, 0.8);
+                element.object3D.rotation.y += Math.PI*0.1;
+                // element.setAttribute('animation', {property: 'rotation',
+                //                  to: {x: 30, y: 90, z: 0}, dur: 1000 }, true)
+            });
+
+            button.addEventListener('mouseleave', function () {
+                element.object3D.scale.set(0.4, 0.4, 0.4);
+            });
 		}
 	});
 </script>
+<style>
+    .buttons {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+</style>
 
 <body style="margin : 0px; overflow: hidden;">
+    <div class="buttons">
+        <button class="animate" hidden>Scale & rotate retro phone</button>
+    </div>
     <a-scene \
         vr-mode-ui="enabled: false;" \
         embedded \
@@ -65,16 +97,15 @@
             displayHeight: 720;
             debugUIEnabled: false;
             " \
-        renderer="precision: mediump;" \
     >
         <a-assets>
             <a-asset-item id="iphone" src="assets/phone-01/scene.gltf"></a-asset-item>
-            <a-asset-item id="retrophone" src="assets/phone-02/scene.gltf"></a-asset-item>
+            <a-asset-item id="retrophone" src="assets/phone-02/scene.gltf" response-type="arraybuffer"></a-asset-item>
             <a-asset-item id="headphone" src="assets/accesory-01/scene.gltf"></a-asset-item>
         </a-assets>
-        <a-marker type="pattern" url="assets/pattern-index.patt" id="pattern-iphone" registerevents>
+        <a-marker type="pattern" url="assets/pattern-index.patt" id="pattern-iphone">
             <a-entity \
-                position="1.0 0 0" \
+                position="0.5 0 0" \
                 scale="1 1 1" \
                 gltf-model="#iphone" \
                 animation="property: 
@@ -83,7 +114,7 @@
                     dur: 6000" \
             ></a-entity>
             <a-box 
-                position='-1.0 0.0 0' \
+                position='-0.5 0 0' \
                 material='opacity: 0.0; 
                     side: double;' \
             >
@@ -105,12 +136,13 @@
                 gltf-model="#retrophone" \
             ></a-entity>
         </a-marker>
-        <!-- <a-marker type='barcode' value='5' id="barcode-5-knot" registerevents>
+        <!-- <a-marker type='barcode' value='5' id="barcode-5-knot">
 			
 		</a-marker> -->
         <!-- <a-marker type='barcode' value='5' id="barcode-5-sphere">
             <a-sphere position="0 0.0 0" radius="0.4" color="red" />
         </a-marker> -->
+        <!-- <a-entity camera look-controls position="0 0 0"></a-entity> -->
     </a-scene>
 
 </body>
