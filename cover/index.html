@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Wojciech Zielinski">
+    <title>Web AR</title>    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="arscript.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  
+  </head>
+  <body class="">
+    
+    <div class="container-fluid h-100 text-center text-bg-dark">
+      <header class="p-3">
+        <div>
+          <h3 class="float-md-start mb-0">Scenarios</h3>
+          <nav class="nav nav-masthead justify-content-right float-md-end">
+            <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Markers</a>
+            <a class="nav-link fw-bold py-1 px-0" href="#">Location</a>
+            <a class="nav-link fw-bold py-1 px-0" href="#">Camera</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="">
+        <a-scene \  
+          vr-mode-ui="enabled: false;" \
+          embedded \
+          arjs="trackingMethod: best;
+            sourceType: webcam;
+            detectionMode: mono_and_matrix;
+            matrixCodeType: 3x3;
+            sourceWidth:1280;
+            sourceHeight:720;
+            displayWidth: 1280;
+            displayHeight: 720;
+            debugUIEnabled: false;
+            " \
+        >
+          <a-assets>
+            <a-asset-item id="iphone" src="../assets/phone-01/scene.gltf"></a-asset-item>
+            <a-asset-item id="retrophone" src="../assets/phone-02/scene.gltf" response-type="arraybuffer"></a-asset-item>
+            <a-asset-item id="headphone" src="../assets/accesory-01/scene.gltf"></a-asset-item>
+          </a-assets>
+          <a-marker type="pattern" url="../assets/pattern-index.patt" id="pattern-iphone">
+            <a-entity \
+              position="0.5 0 0" \
+              scale="1 1 1" \
+              gltf-model="#iphone" \
+              animation="property: 
+                rotation; to: 0 360 0; 
+                loop: true; 
+                dur: 8000" \
+            ></a-entity>
+            <a-box 
+              position='-0.5 0 0' \
+              material='opacity: 0.0; 
+                side: double;' \
+            >
+              <a-torus-knot 
+                radius='0.26' \
+                radius-tubular='0.05' \
+                animation="property: rotation; 
+                  to:360 0 0; 
+                  dur: 4000; 
+                  easing: linear; 
+                  loop: true" \
+                animation__2="property: rotation; 
+                  to:0 360 360; 
+                  dur: 12000;
+                  loop: true" \
+              ></a-torus-knot>
+            </a-box>
+          </a-marker>
+          <a-marker preset="hiro" id="hiro-retrophone" registerevents>
+            <a-entity \
+              position="0 0 0" \
+              scale="0.4 0.4 0.4" \
+              gltf-model="#retrophone" \
+            ></a-entity>
+          </a-marker>
+        </a-scene>
+        <!-- <h1>Cover your page.</h1>
+        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+        </p> -->
+        <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white" hidden>Scale & rotate retro phone</a>
+      </main>
+
+      <footer class="">
+        <p>Example of usage <a href="https://ar-js-org.github.io/AR.js-Docs/" class="text-white">AR.js</a> library.</p>
+      </footer>
+    </div>
+
+
+    
+  </body>
+</html>
