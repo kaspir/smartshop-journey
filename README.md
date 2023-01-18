@@ -24,11 +24,19 @@ Application to experiment with web ar functionality based on opensource librarie
         launch Chrome > tap Three-dot menu > Settings > scroll down to section Advanced and tap Site settings > Camera > toggle the switch to allow websites to use camera 
 
 4. Point camera into Markers to see 3d models in AR.
+    <p float="left">
+    <img src="assets/marker-hiro.png" width="256" height="256" alt="Hiro marker">
+    <img src="assets/marker-kanji.png" width="256" height="256" alt="Kanji marker">
     <br>
-    <img src="assets/pattern-index.png" width="256" height="256">
-    <img src="assets/hiro.png" width="256" height="256">
-    <img src="assets/marker-barcode-5.png" width="256" height="256">
-    
+    <img src="assets/marker-letterA.png" width="256" height="256" alt="LetterA marker">
+    <img src="assets/marker-letterB.png" width="256" height="256" alt="LetterB marker">
+    <br>
+    <img src="assets/barcode-00.png" width="256" height="256" alt="Nb00 barcode">
+    <img src="assets/barcode-01.png" width="256" height="256" alt="Nb01 barcode">
+    <br>
+    <img src="assets/barcode-05.png" width="256" height="256" alt="Nb 5 marker">
+    <img src="assets/pattern-index.png" width="256" height="256" alt="Orange small logo marker">
+    </p>
 
 
 
