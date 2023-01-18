@@ -1,153 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+<head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AR showcase</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
 
-<!-- Orange brand styling -->
-<!-- <link rel="stylesheet" href="css/orangeHelvetica.css" /> -->
-<!-- <link rel="stylesheet" href="css/orangeIcons.css" /> -->
-<!-- <link rel="stylesheet" href="css/boosted.css" /> -->
+<!-- Load the element definition -->
+<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
-
-<!-- <script src="js/webcam.js"></script> -->
-
-<!-- A-Frame -->
-<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-
-<!-- AR.js with Image Tracking -->
-<!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
-<!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-nft.js"></script> -->
-
-
-<!-- AR.js with Marker Tracking -->
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-<!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script> -->
-
-<script>
-    window.addEventListener('camera-init', (data) => {
-        console.log('camera-init', data);
-    })
-
-    window.addEventListener('camera-error', (error) => {
-        console.log('camera-error', error);
-    })
-
-	AFRAME.registerComponent('registerevents', {
-		init: function () {
-			var marker = this.el;
-            var button = document.querySelector(".buttons > button")
-            var element = document.querySelector("#hiro-retrophone > a-entity")
-            
-
-			marker.addEventListener('markerFound', function() {
-				var markerId = marker.id;
-				console.log('markerFound', markerId);
-				// TODO: Add your own code here to react to the marker being found.
-                button.hidden=false;
-			});
-
-			marker.addEventListener('markerLost', function() {
-				var markerId = marker.id;
-				console.log('markerLost', markerId);
-				// TODO: Add your own code here to react to the marker being lost.
-                button.hidden=true;
-			});
-
-            button.addEventListener('click', function () {
-                element.object3D.scale.set(0.8, 0.8, 0.8);
-                element.object3D.rotation.y += Math.PI*0.1;
-                // element.setAttribute('animation', {property: 'rotation',
-                //                  to: {x: 30, y: 90, z: 0}, dur: 1000 }, true)
-            });
-
-            button.addEventListener('mouseleave', function () {
-                element.object3D.scale.set(0.4, 0.4, 0.4);
-            });
-		}
-	});
-</script>
 <style>
-    .buttons {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
+    /* Custom CSS to prevent the content 
+    to go underneath the navbar */
+    body{
+        padding-top: 70px;
     }
 </style>
-
-<body style="margin : 0px; overflow: hidden;">
-    <div class="buttons">
-        <button class="animate" hidden>Scale & rotate retro phone</button>
+</head>
+<body>
+<div class="m-4">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- <a href="#" class="navbar-brand">Brand</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="../index.html" class="nav-item nav-link active">Intro</a>
+                    <a href="../marker1.html" class="nav-item nav-link" target="_blank">Marker</a>
+                    <a href="../location1.html" class="nav-item nav-link" target="_blank">Location</a>
+                    <!-- <a href="#" class="nav-item nav-link disabled" tabindex="-1">To do</a> -->
+                </div>
+                <!-- <div class="navbar-nav ms-auto">
+                    <a href="#" class="nav-item nav-link">Login</a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Demo Content -->    
+    <div class="container">
+        <!-- Simply set the `src` attribute to your MD file and win -->
+        <zero-md src="README.md"></zero-md>
+        
     </div>
-    <a-scene \
-        vr-mode-ui="enabled: false;" \
-        embedded \
-        arjs="trackingMethod: best;
-            sourceType: webcam;
-            detectionMode: mono_and_matrix;
-            matrixCodeType: 3x3;
-            sourceWidth:1280;
-            sourceHeight:720;
-            displayWidth: 1280;
-            displayHeight: 720;
-            debugUIEnabled: false;
-            " \
-    >
-        <a-assets>
-            <a-asset-item id="iphone" src="assets/phone-01/scene.gltf"></a-asset-item>
-            <a-asset-item id="retrophone" src="assets/phone-02/scene.gltf" response-type="arraybuffer"></a-asset-item>
-            <a-asset-item id="headphone" src="assets/accesory-01/scene.gltf"></a-asset-item>
-        </a-assets>
-        <a-marker type="pattern" url="assets/pattern-index.patt" id="pattern-iphone">
-            <a-entity \
-                position="0.5 0 0" \
-                scale="1 1 1" \
-                gltf-model="#iphone" \
-                animation="property: 
-                    rotation; to: 0 360 0; 
-                    loop: true; 
-                    dur: 8000" \
-            ></a-entity>
-            <a-box 
-                position='-0.5 0 0' \
-                material='opacity: 0.0; 
-                    side: double;' \
-            >
-				<a-torus-knot 
-                    radius='0.26' \
-                    radius-tubular='0.05' \
-                    animation="property: rotation; 
-                        to:360 0 0; 
-                        dur: 4000; 
-                        easing: linear; 
-                        loop: true" \
-                    animation__2="property: rotation; 
-                    to:0 360 360; 
-                    dur: 12000;
-                    loop: true" \
-                ></a-torus-knot>
-			</a-box>
-        </a-marker>
-        <a-marker preset="hiro" id="hiro-retrophone" registerevents>
-            <a-entity \
-                position="0 0 0" \
-                scale="0.4 0.4 0.4" \
-                gltf-model="#retrophone" \
-            ></a-entity>
-        </a-marker>
-        <!-- <a-marker type='barcode' value='5' id="barcode-5-knot">
-			
-		</a-marker> -->
-        <!-- <a-marker type='barcode' value='5' id="barcode-5-sphere">
-            <a-sphere position="0 0.0 0" radius="0.4" color="red" />
-        </a-marker> -->
-        <!-- <a-entity camera look-controls position="0 0 0"></a-entity> -->
-    </a-scene>
-
+</div>
 </body>
 </html>
