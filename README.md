@@ -42,10 +42,11 @@ Application to experiment with web ar functionality based on opensource librarie
 
 ## Technical information
 
+### AR.js
+
 AR.js library is used for Augmented Reality on the Web
 https://ar-js-org.github.io/AR.js-Docs/
-
-### AR types
+Library is built upon A-Frame and three.js Javascript libraries.
 
 AR.js features the following types of Augmented Reality, on the Web:
 <ul>
@@ -66,13 +67,35 @@ AR.js uses WebGL technology to present graphics and WebRTC to manage camera.
 
 Marker based tracking is very lightweight, while Image Tracking is more CPU consuming.
 
-## Comments
+### WebXR
 
-Current experiment uses first two markers. Under the first one (also available when user scan QR code with pattern inside) there is two 3d models next to each other:
+The WebXR Device API provides access to input (pose information from headset and controllers) and output (hardware display) capabilities commonly associated with Virtual Reality (VR) and Augmented Reality (AR) devices. It allows you develop and host VR and AR experiences on the web.
+
+It is promissing API for accessing VR & AR, but currently not supported by all significant browsers. https://caniuse.com/webxr
+
+
+
+## Examples
+
+Check on top nav bar <div align="right">[:arrow_up:](#smartshop-journey)</div>
+
+About **Marker** subpage
+
+Current experiment uses two out of all markers. Under the first one (also available when user scan QR code with pattern inside) there is two 3d models next to each other:
 - a knot (A-Frame primitive) - it have 2 animations attached with different duration and axis
 - mobile phone (from free to use GLTF model) - one animation which rotates around y axis
 
 Second marker (Hiro) leads to retro phone model (GLTF). It has Java Script event attached to actively scale and rotate model. To do that firstly marker must be recoginzed (button on the bottom of screen shows up). If user click on button, then model will change accordingly.
 
+About **Stemkoski.github.io (ext)** subpage
 
+It is a collection of basic examples that presents various features in AR.js library (version 2).
+Viewing the AR examples will require a device with a camera and various marker images to be detected, which are available in the markers directory in this repository. Requires the kanji marker unless otherwise specified.
+Source code hosted at https://github.com/stemkoski/AR.js-examples
 
+## Links
+
+[WebAR vs Native AR: What Are The Key Differences](https://www.softwaretestinghelp.com/webar-vs-native-ar/)
+[AR.js library](https://ar-js-org.github.io/AR.js-Docs/)
+[WebXR explainer](https://github.com/immersive-web/webxr/blob/master/explainer.md)
+[WebXR Device API](https://www.w3.org/TR/webxr/)
