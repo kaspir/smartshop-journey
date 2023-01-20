@@ -69,7 +69,9 @@ Marker based tracking is very lightweight, while Image Tracking is more CPU cons
 
 ### WebXR
 
-The WebXR Device API provides access to input (pose information from headset and controllers) and output (hardware display) capabilities commonly associated with Virtual Reality (VR) and Augmented Reality (AR) devices. It allows you develop and host VR and AR experiences on the web.
+It is World Wide Web Consortium candidate for a new standard. https://www.w3.org/TR/webxr/
+
+The WebXR Device API provides access to input (pose information from headset and controllers) and output (hardware display) capabilities commonly associated with Virtual Reality (VR) and Augmented Reality (AR) devices. That means any device with a browser can provide an Augmented or Virtual reality experience, without needing to download a native application from that devices App store.
 
 It is promissing API for accessing VR & AR, but currently not supported by all significant browsers. https://caniuse.com/webxr
 
