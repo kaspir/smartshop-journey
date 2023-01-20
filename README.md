@@ -77,7 +77,7 @@ It is promissing API for accessing VR & AR, but currently not supported by all s
 
 ## Examples
 
-Check on top nav bar <div align="right">[:arrow_up:](#smartshop-journey)</div>
+Check on top nav bar [🔼](#smartshop-journey)
 
 About **Marker** subpage
 
@@ -95,7 +95,8 @@ Source code hosted at https://github.com/stemkoski/AR.js-examples
 
 ## Links
 
-[WebAR vs Native AR: What Are The Key Differences](https://www.softwaretestinghelp.com/webar-vs-native-ar/)
-[AR.js library](https://ar-js-org.github.io/AR.js-Docs/)
-[WebXR explainer](https://github.com/immersive-web/webxr/blob/master/explainer.md)
-[WebXR Device API](https://www.w3.org/TR/webxr/)
+
+- [] [WebAR vs Native AR: What Are The Key Differences](https://www.softwaretestinghelp.com/webar-vs-native-ar/)
+- [] [AR.js library](https://ar-js-org.github.io/AR.js-Docs/)
+- [] [WebXR explainer](https://github.com/immersive-web/webxr/blob/master/explainer.md)
+- [] [WebXR Device API](https://www.w3.org/TR/webxr/)
