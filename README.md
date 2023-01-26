@@ -79,7 +79,7 @@ It is promissing API for accessing VR & AR, but currently not supported by all s
 
 ## Examples
 
-Check on top nav bar [🔼](#smartshop-journey)
+Check links at the top of the page in the navigation bar.
 
 About **Marker** subpage
 
@@ -94,6 +94,11 @@ About **Stemkoski.github.io (ext)** subpage
 It is a collection of basic examples that presents various features in AR.js library (version 2).
 Viewing the AR examples will require a device with a camera and various marker images to be detected, which are available in the markers directory in this repository. Requires the kanji marker unless otherwise specified.
 Source code hosted at https://github.com/stemkoski/AR.js-examples
+
+About **WebXR samples (ext)** subpage
+
+It is a collection of examples how to use various aspects of WebXR API.
+Source code hosted at https://github.com/immersive-web/webxr-samples
 
 ## Links
 
